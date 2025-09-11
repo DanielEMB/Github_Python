@@ -1,2 +1,2 @@
 # PracticaU1_github
-Repositorio de proyecto de github.
+El propósito de este repositorio es subir los posibles cambios que hayan en esta actividad, creado por Daniel Meza.
