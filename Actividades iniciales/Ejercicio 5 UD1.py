@@ -6,4 +6,4 @@ var3 = input("Introduce otra palabra")
 var4 = input("Introduce otra palabra")
 var5 = input("Introduce otra palabra")
 
-print(var1,var2,var3,var4,var5)
+print((var1),(","),(var2),(","),(var3),(","),(var4),(","),(var5))
