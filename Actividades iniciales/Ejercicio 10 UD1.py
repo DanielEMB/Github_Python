@@ -7,6 +7,8 @@ cociente = var1/var2
 resto = var1 % var2
 if resto == 0:
     dividendo = "par"
-else:
+else:   
     dividendo = "impar"
-print("El cociente es:", cociente, "El resto es:", resto, "El dividendo es", dividendo) 
+print("El cociente es:", cociente)
+print("El resto es:", resto)
+print("El dividendo es", dividendo) 
