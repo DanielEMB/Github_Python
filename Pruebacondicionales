@@ -1,0 +1,18 @@
+print("MENÚ")
+print("1. hamburguesa")
+print("2. pizza")
+print("3. lentejas")
+print("4. bocadillo de jamón")
+
+opcionescogida = int(input("Introduce un número"))
+
+if opcionescogida == 1:
+    print("Has escogido la hamburguesa!!")
+elif opcionescogida == 2:
+    print("Has escogido la pizza")
+elif opcionescogida == 3:
+    print("has escogido las lentejas yaaay")
+elif opcionescogida == 4:
+    print("Has escogido el bocadillo de jamón :)")
+else:
+    print("No has escogido ninguna opción")
