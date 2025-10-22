@@ -1,4 +1,4 @@
-# 6. A partir del programa 5. Haz que se muestre por pantalla también la frase en el orden inverso en que se han introducido las palabras.
+#6. A partir del programa 5. Haz que se muestre por pantalla también la frase en el orden inverso en que se han introducido las palabras.
 
 var1 = input("Introduce una palabra")
 var2 = input("Introduce otra palabra")

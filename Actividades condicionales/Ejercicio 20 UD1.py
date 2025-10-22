@@ -1,4 +1,5 @@
-#20. A partir del ejercicio anterior, forzar que el usuario solo pueda introducir por teclados números entre 0 y 10.
+#20. A partir del ejercicio anterior,
+# forzar que el usuario solo pueda introducir por teclados números entre 0 y 10.
 
 numero1 = float(input("Introduce el valor 1:"))
 numero2 = float(input("Introduce el valor 2:"))
