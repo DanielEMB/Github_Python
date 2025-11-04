@@ -11,17 +11,68 @@ print("     Posició 6 Un número major o igual a 6 i menor o igual a 9")
 print("     Posició 7 Uno de los siguientes símbolos &, /, #")
 print("     Posició 8 Un número menos o igual a 5")
 password = input("Introduce una palabra clave:")
-
+passvalida = True
 if len(password) >=6 and len(password) <=8:
-    if password[0] >= 1:
-        if password[1].islower:
-            if password[2].isupper:
-            
-            else:
-            print("Error en el caràcter 3")
+    if password[0].isnumeric():
+        passvalida = passvalida
+        if int(password[0]) >=1 and int(password[0])<=5:
+            #es necesario hacer esto, ya que si se da una condición no puedes poner otra condición
+            #directamente sin que de error
+            passvalida = passvalida
         else:
-            print("Error en el caràcter 2")
+            print("Error en el carácter 1")
+            passvalida = False
     else:
-        print("Error en el caràcter 1")
+        print("Error en el carácter 1")
+        passvalida = False
+    if password[1].islower():
+        passvalida = passvalida
+    else:
+        print("Error en el carácter 2")
+        passvalida = False
+    if password[2].isupper():
+        passvalida = passvalida
+    else:
+        print("Error en el carácter 3")
+        passvalida = False
+    if password[3] in ["*", "_", "@"]:
+        passvalida = passvalida
+    else:
+        print("Error en el carácter 4")
+        passvalida = False
+    if password[4].islower():
+        passvalida = passvalida
+    else:
+        print("Error en el carácter 5")
+        passvalida = False
+    if password[5].isnumeric():
+        passvalida = passvalida
+        if  int(password[5]) >= 6 and int(password[5]) <= 9:
+            passvalida = passvalida
+            if len(password) == 6 and passvalida == True:
+                print("el format del PASSWORD es CORRECTE")
+        else:
+            print("Error en el carácter 6")
+            passvalida = False
+    else:
+        print("Error en el carácter 6")
+        passvalida = False
+    if len(password) >= 7:       
+        if password[6] in ["&", "/", "#"]:
+            passvalida = passvalida
+            if len(password) == 7 and passvalida == True:
+                print("el format del PASSWORD es CORRECTE")
+        else:
+            print("Error en el carácter 7")
+            passvalida = False
+    if password[7].isnumeric():
+        if int(password[7]) <= 5:
+            if passvalida == True:
+                print("el format del PASSWORD es CORRECTE")
+        else:
+            print("Error en el carácter 8")
+    else:
+        print("Error en el carácter 8")
+        passvalida = False
 else:
-    print(f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits”")
+    print(f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits")
