@@ -1,0 +1,7 @@
+# 40. Crea un programa que cuente todos los números pares hasta el número 50
+contador = 0
+for i in range(0, 51, 2):
+    print(i)
+    contador += 1
+print("el número de pares es: ", contador - 1)
+print("el numero de pares es: ", contador - 1)

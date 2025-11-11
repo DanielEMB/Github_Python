@@ -50,6 +50,7 @@ if len(password) >=6 and len(password) <=8:
         if  int(password[5]) >= 6 and int(password[5]) <= 9:
             passvalida = passvalida
             if len(password) == 6 and passvalida == True:
+                # si todos los valores suman 6 carácteres y password es valida:
                 print("el format del PASSWORD es CORRECTE")
         else:
             print("Error en el carácter 6")
@@ -61,18 +62,21 @@ if len(password) >=6 and len(password) <=8:
         if password[6] in ["&", "/", "#"]:
             passvalida = passvalida
             if len(password) == 7 and passvalida == True:
+                # si todos los valores suman 7 carácteres y password es valida:
                 print("el format del PASSWORD es CORRECTE")
         else:
             print("Error en el carácter 7")
             passvalida = False
-    if password[7].isnumeric():
-        if int(password[7]) <= 5:
-            if passvalida == True:
-                print("el format del PASSWORD es CORRECTE")
+    if len(password) == 8:
+        if password[7].isnumeric():
+            if int(password[7]) <= 5:
+                if passvalida == True:
+                    # si todos los valores suman 8 carácteres y password es valida:
+                    print("el format del PASSWORD es CORRECTE")
+            else:
+                print("Error en el carácter 8")
         else:
             print("Error en el carácter 8")
-    else:
-        print("Error en el carácter 8")
-        passvalida = False
+            passvalida = False
 else:
     print(f"Error, el password té una longitud de {len(password)} caràcters i no compleix els requisits")
