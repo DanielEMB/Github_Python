@@ -1,0 +1,9 @@
+#Versión 1 de for
+palabra = input("Introduce la palabra")
+numero = int(input("Introducde un número"))
+
+for i in palabra:
+    print(i)
+#Versión de rango de for
+for i in range(0, numero):
+    print(palabra)
