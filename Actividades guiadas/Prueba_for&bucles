@@ -1,3 +1,5 @@
+#FOR
+
 #Versión 1 de for
 palabra = input("Introduce la palabra")
 numero = int(input("Introducde un número"))
@@ -7,3 +9,9 @@ for i in palabra:
 #Versión de rango de for
 for i in range(0, numero):
     print(palabra)
+
+#WHILE
+i = 1
+
+while i<10:
+    print("pau uros malo en Rocket", str(i))
