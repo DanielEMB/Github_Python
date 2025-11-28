@@ -13,3 +13,10 @@ pedidos = 0
 bocadillo = int(input("Introduce tu bocadillo"))
 acompañamiento = int(input("Introduce tu acompañamiento"))
 bebidas = int(input("Introduce tu bebida"))
+respuesta = ""
+
+if bocadillo == 1:
+    
+elif bocadillo == 2:
+
+elif bocadillo == 3:

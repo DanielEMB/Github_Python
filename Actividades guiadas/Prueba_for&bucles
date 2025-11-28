@@ -1,5 +1,4 @@
 #FOR
-
 #Versión 1 de for
 palabra = input("Introduce la palabra")
 numero = int(input("Introducde un número"))
@@ -15,3 +14,4 @@ i = 1
 
 while i<10:
     print("pau uros malo en Rocket", str(i))
+    i+=1
