@@ -12,17 +12,13 @@ print("1. Coca cola - 2 €"), print("2. Acuarius - 1.5 €" ), print("3. Agua -
 pedidos = 0
 totalapagar = 0
 respuesta = "s"
+
 while respuesta == "s":
     bocadillo = int(input("Introduce tu bocadillo"))
     acompañamiento = int(input("Introduce tu acompañamiento"))
     bebida = int(input("Introduce tu bebida"))
     #GESTIÓN BOCATAS
-    if bocadillo == 1:
-        totalapagar += 9
-    elif bocadillo == 2:
-        totalapagar += 4.5
-    elif bocadillo == 3:
-        totalapagar += 2.5
+  
     #GESTIÓN ACOMPAÑAMIENTO
     if acompañamiento == 1:
         totalapagar += 1.5

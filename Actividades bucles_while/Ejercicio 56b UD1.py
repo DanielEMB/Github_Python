@@ -20,7 +20,7 @@ respuesta = "s"
 while respuesta == "s":
     bebida = int(input("Introduce tu bebida"))
     #GESTIÓN BOCATAS
-    bocadillo_ = input("¿Quieres bocadillo? s/n: ")
+    bocadillo_ = input("¿Quieres bocadillo? s/n: ") 
     if bocadillo_ == "s" or "S": 
         bocadillo = int(input("Introduce tu bocadillo"))
         if bocadillo == 1:
