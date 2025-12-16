@@ -11,53 +11,52 @@ print("6. Testeo de 10 pruebas que permita la evaluación del código.")
 # CONTADORES
 contador = 0
 contraseñas = ""
-# VARIABLES DE CONDICIONES
-numeros = 0 # uno del 6-9, dos 1-5
-numerosA = 0
-numerosB = 0
-mayus = 0 # 1 mínimo
-minus = 0 # 2 mínimo
-simbolos = 0
-letras = 0
+
 while contador < 3:
-    contador += 1    
+    # VARIABLES DE CONDICIONES
+    numeros = 0 # uno del 6-9, dos 1-5
+    numerosA = 0
+    numerosB = 0
+    mayus = 0 # 1 mínimo
+    minus = 0 # 2 mínimo
+    simbolos = 0
+    letras = 0    
+
     password = input("Introduce tu password: ")
     correcta = True
-    for i in range(0, len(password) - 1):
+    contador +=1
+    for i in range(len(password)):
         if password[i].isnumeric():
+            numeros += 1
             if int(password[i]) >= 6: # DETECTAR Q SOLO SEA 1
-                numeros += 1
                 numerosA += 1
-            elif int(password[i]) < 5: # DETECRAR Q SOLO SEAN 2
-                numeros += 1
+            elif int(password[i]) <= 5: # DETECRAR Q SOLO SEAN 2
                 numerosB += 1
         elif password[i].isalpha():
             letras += 1
-            if password[i].isupper:
+            if password[i].isupper():
                 mayus += 1
-            if password[i].islower:
+            elif password[i].islower():
                 minus += 1
         else:
-            simbolos += 1        
-    if not numeros >= 3:
+            simbolos += 1      
+    if numeros<3:
         correcta = False
-    else:
-        if numerosA >= 1:
-            correcta = correcta
-        if numerosB >= 2:
-            correcta = correcta
-    if not letras >= 3:
+    if letras<3:
         correcta = False
-    else:
-        if mayus >= 1:
-            correcta = correcta
-        if minus >= 2:
-            correcta = correcta
-    if not simbolos >= 2:
+    if minus<2:
+        correcta = False
+    if mayus<1:
+        correcta = False
+    if simbolos<2:
+        correcta = False
+    if numerosA<1:
+        correcta = False
+    if numerosB<2:
         correcta = False
     if correcta == True:
         contraseñas += (f"Contraseña {contador} correcta, ")
     else:
         contraseñas += (f"Contraseña {contador} incorrecta, ")
 print(contraseñas[:-2] + ".")
-                                                                                                       
+#ERROR CON ESTA CONTRASEÑA: Ddd239#@
