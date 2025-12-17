@@ -11,7 +11,8 @@ print("6. Testeo de 10 pruebas que permita la evaluación del código.")
 # CONTADORES
 contador = 0
 contraseñas = ""
-
+correctas = 0
+incorrectas = 0
 while contador < 3:
     # VARIABLES DE CONDICIONES
     numeros = 0 # uno del 6-9, dos 1-5
@@ -26,11 +27,12 @@ while contador < 3:
     correcta = True
     contador +=1
     for i in range(len(password)):
+        # Miramos cada carácter de la contraseña para identificar que tipo es.
         if password[i].isnumeric():
             numeros += 1
-            if int(password[i]) >= 6: # DETECTAR Q SOLO SEA 1
+            if int(password[i]) >= 6: # DETECTAR QUE SOLO SEA 1
                 numerosA += 1
-            elif int(password[i]) <= 5: # DETECRAR Q SOLO SEAN 2
+            elif int(password[i]) <= 5: # DETECRAR QUE SOLO SEAN 2
                 numerosB += 1
         elif password[i].isalpha():
             letras += 1
@@ -39,9 +41,11 @@ while contador < 3:
             elif password[i].islower():
                 minus += 1
         else:
-            simbolos += 1      
+            simbolos += 1 
+    #Decimos que la password sea incorrecta si no cumple solo una de las condiciones.     
     if numeros<3:
         correcta = False
+        #PRINT("EL ERROR QUE HAYA")
     if letras<3:
         correcta = False
     if minus<2:
@@ -54,9 +58,14 @@ while contador < 3:
         correcta = False
     if numerosB<2:
         correcta = False
+    # Concatena a una variable string el texto según cada contraseña sea correcta o incorrecta.
     if correcta == True:
         contraseñas += (f"Contraseña {contador} correcta, ")
+        correctas += 1
     else:
         contraseñas += (f"Contraseña {contador} incorrecta, ")
+        incorrectas +=1
 print(contraseñas[:-2] + ".")
-#ERROR CON ESTA CONTRASEÑA: Ddd239#@
+print(f"El número de contraseñas correctas es: {correctas}, y el de incorrectas es: {incorrectas}")
+# PRUEBAS DE CONTRASEÑAS: Ddd239#@, Uuu135#@, C1dc2{{9, 945@dOp#,
+# =338R#mn, 5Et1€7d@, 8Rtf&4/2, 8!Cr32r?, %52Fqc9*
