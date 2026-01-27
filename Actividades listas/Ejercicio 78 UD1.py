@@ -12,5 +12,7 @@ while respuesta == "s":
         print("Introduce un valor numérico")
     if numero in lista1:
         lista1.remove(numero)
+    else:
+        print("El valor introducido no está en la lista")
     respuesta = input("Deseas introducir otro valor s/n?: ")
 print(lista1)
