@@ -27,20 +27,15 @@ while respuesta == "s":
         dni_incorrectos.append(dni)
         erroreslongitud += 1
         errorestotal += 1
-    elif dni.isnumeric():   # ← CORRECCIÓN ESENCIAL
+    elif dni.isnumeric():
         if len(dni) == 8:
             resto = int(dni) % 23
-            if resto >= len(letras):   # ← CONTROL DEL RESTO
-                print("Error: el resto no aparece en la tabla.")
-                dni_incorrectos.append(dni)
-                errorestotal += 1
-            else:
-                for i in range(len(letras)):
-                    if letras[i] == letras[resto]:
-                        dni += "-" + letras[i]
-                lista_dni.append(3)
-                dni_correctos.append(dni)
-                print("¡DNI correcto!")
+            for i in range(len(letras)):
+                if letras[i] == letras[resto]:
+                    dni += "-" + letras[i]
+            lista_dni.append(3)
+            dni_correctos.append(dni)
+            print("¡DNI correcto!")
     else:
         lista_dni.append(1)
         dni_incorrectos.append(dni)
@@ -55,7 +50,7 @@ print("RESULTADOS. Escoge una opción."), print("1. listar DNI correcto ordenado
 print("2. Listar DNI incorrecto ordenado de menor a mayor"), print("3. Número total de errores producidos")
 print("4. Número total de DNI correctos"), print("5. Porcentajes intentos con error y sin error"),
 print("6. Salir s/n")
-opción = int(input("Escoje una opción para mostrarse en la salida 1-7"))
+opción = int(input("Escoje una opción para mostrarse en la salida 1-7: "))
 
 if opción == 1:
     print("Los DNI correctos de menor a mayor son:", dni_correctos)
