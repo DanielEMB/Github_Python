@@ -35,6 +35,7 @@ while respuesta == "s":
                     dni += "-" + letras[i]
             lista_dni.append(3)
             dni_correctos.append(dni)
+            print(dni)
             print("¡DNI correcto!")
     else:
         lista_dni.append(1)
