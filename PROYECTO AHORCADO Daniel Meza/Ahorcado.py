@@ -11,8 +11,12 @@ print(lista_partida)
 
 while lista_partida != palabra:
     letra = input("Introduce una letra")
-    if letra in palabra:
-        for i in palabra:
-            if letra == i:
-                posicion = palabra.index(i)
-                print(posicion)
+    for i in range(len(palabra)):
+        if palabra[i] == letra:
+            print("Letra encontrada:", letra, "en posición", i)
+            lista_partida[i] = letra
+    if not letra in palabra:
+        lista_ahorcado.append(letra)
+        print("Las letras incorrectas son:", lista_ahorcado)
+    print(lista_partida)
+
