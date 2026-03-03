@@ -11,32 +11,39 @@ print(lista_partida)
 confirmador = 0
 while lista_partida != palabra:
     letra = input("Introduce una letra")
-    for i in range(len(palabra)):
-        if palabra[i] == letra:
-            print("Letra encontrada:", letra, "en posición", i)
-            lista_partida[i] = letra
-        elif letra == "a":
-            confirmador == 1
-            if "á" in letra:
-                lista_partida[i] = "á"
-        elif letra == "e":
-            confirmador == 1
-            if "é" in letra:
-                lista_partida[i] = "é"
-        elif letra == "i":
-            confirmador == 1
-            if "í" in letra:
-                lista_partida[i] = "í"
-        elif letra == "o":
-            confirmador == 1
-            if "ó" in letra:
-                lista_partida[i] = "ó"
-        elif letra == "u":
-            confirmador == 1
-            if "ú" in letra:
-                lista_partida[i] = "ú"
+    if letra in lista_partida and confirmador == 0:
+        print("Ya has introducido esta letra antes")
+    else:
+        for i in range(len(palabra)):
+            if palabra[i] == letra:
+                print("Letra encontrada:", letra, "en posición", i)
+                lista_partida[i] = letra
+            elif letra == "a":
+                confirmador == 1
+                if "á" in letra:
+                    lista_partida[i] = "á"
+            elif letra == "e":
+                confirmador == 1
+                if "é" in letra:
+                    lista_partida[i] = "é"
+            elif letra == "i":
+                confirmador == 1
+                if "í" in letra:
+                    lista_partida[i] = "í"
+            elif letra == "o":
+                confirmador == 1
+                if "ó" in letra:
+                    lista_partida[i] = "ó"
+            elif letra == "u":
+                confirmador == 1
+                if "ú" in letra:
+                    lista_partida[i] = "ú"
     if not letra in palabra and confirmador == 0:
-        lista_ahorcado.append(letra)
+        print("Has introducido una letra incorrecta!")
+        if not letra in lista_ahorcado:
+            lista_ahorcado.append(letra)
+        else:
+            print("Ya has introducido esta letra antes")
         print("Las letras incorrectas son:", lista_ahorcado)
     confirmador == 0
     print(lista_partida)
