@@ -24,28 +24,29 @@ while lista_partida != lista_palabra:
                 lista_partida[i] = letra
             elif letra == "a":
                 confirmador == 1
-                if "á" in letra:
+                if "á" in palabra:
                     lista_partida[i] = "á"
             elif letra == "e":
                 confirmador == 1
-                if "é" in letra:
+                if "é" in palabra:
                     lista_partida[i] = "é"
             elif letra == "i":
                 confirmador == 1
-                if "í" in letra:
+                print(confirmador)
+                if "í" in palabra:
                     lista_partida[i] = "í"
             elif letra == "o":
                 confirmador == 1
-                if "ó" in letra:
+                if "ó" in palabra:
                     lista_partida[i] = "ó"
             elif letra == "u":
                 confirmador == 1
-                if "ú" in letra:
+                if "ú" in palabra:
                     lista_partida[i] = "ú"
     if not letra in palabra and confirmador == 0: # INTRODUCIDO PALABRA INCORRECTA
         print("Has introducido una letra incorrecta!")
-        errores+=1
         if not letra in lista_errores:  #LETRAS AHORCADO CUANDO INTRODUCES VALOR INCORRECTO
+            errores+=1
             lista_errores.append(letra)
             if errores == 1:
                 lista_ahorcado.append("A")
@@ -66,6 +67,7 @@ while lista_partida != lista_palabra:
             print(lista_ahorcado)
         else:
             print("Ya has introducido esta letra antes")
+            print()
         print("Las letras incorrectas son:", lista_errores)
         if errores == 8:
             print("...")
