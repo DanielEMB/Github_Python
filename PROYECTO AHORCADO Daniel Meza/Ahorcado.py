@@ -29,20 +29,20 @@ while respuesta == "S" or respuesta == "s":
                     print("Letra encontrada:", letra, "en posición", i)
                     lista_partida[i] = letra
                 elif letra == "a" and palabra[i] == "á":
-                    confirmador == 1
+                    confirmador = 1
                     lista_partida[i] = "á"
                 elif letra == "e" and palabra[i] == "é":
-                    confirmador == 1
+                    confirmador = 1
                     lista_partida[i] = "é"
                 elif letra == "i" and palabra[i] == "í":
-                    confirmador == 1
+                    confirmador = 1
                     print(confirmador)
                     lista_partida[i] = "í"
                 elif letra == "o" and palabra[i] == "ó":
-                    confirmador == 1
+                    confirmador = 1
                     lista_partida[i] = "ó"
                 elif letra == "u" and palabra[i] == "é":
-                    confirmador == 1
+                    confirmador = 1
                     lista_partida[i] = "ú"
             print(lista_partida)
         if not letra in palabra and confirmador == 0 and len(letra) == 1: # INTRODUCIDO PALABRA INCORRECTA
@@ -80,6 +80,13 @@ while respuesta == "S" or respuesta == "s":
     partidas += 1
     confirmador == 0
     print(lista_partida)
-    #RECUERDA SUBIR EJERCICIOS JUTGE EN EL REPOSITORIO
     respuesta = input("¿Quieres jugar otra partida? s/n: ")
-    print(respuesta)
+    lista_palabrasecreta.remove(palabra)
+    palabrasecreta = ""
+    while not palabrasecreta.isalpha() or palabrasecreta.isupper():
+        palabrasecreta = input("Introduce una nueva palabra")
+        if palabrasecreta.isalpha() and palabrasecreta.isupper():
+            lista_palabrasecreta.append(palabrasecreta)
+        else:
+            print("¡Introduce una palabra válida!")
+    
