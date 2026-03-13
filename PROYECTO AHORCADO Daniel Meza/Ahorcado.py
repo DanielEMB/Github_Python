@@ -2,10 +2,12 @@ import random
 
 lista_palabrasecreta = ["xaloc", "sacapuntas", "chocolate", "bisonte", "relatividad", "desoxirribonucleico", "pokémon", "interstellar", "oceanía", "pedri"]
 respuesta = "s"
-while respuesta == "S" or "s":
+partidas = 0
+perdidas = 0
+ganadas = 0
+while respuesta == "S" or respuesta == "s":
     lista_partida = []
     lista_ahorcado = []
-
     lista_errores = []
     errores = 0
     lista_palabra = []
@@ -26,27 +28,22 @@ while respuesta == "S" or "s":
                 if palabra[i] == letra:
                     print("Letra encontrada:", letra, "en posición", i)
                     lista_partida[i] = letra
-                elif letra == "a":
+                elif letra == "a" and palabra[i] == "á":
                     confirmador == 1
-                    if "á" in palabra:
-                        lista_partida[i] = "á"
-                elif letra == "e":
+                    lista_partida[i] = "á"
+                elif letra == "e" and palabra[i] == "é":
                     confirmador == 1
-                    if "é" in palabra:
-                        lista_partida[i] = "é"
-                elif letra == "i":
+                    lista_partida[i] = "é"
+                elif letra == "i" and palabra[i] == "í":
                     confirmador == 1
                     print(confirmador)
-                    if "í" in palabra:
-                        lista_partida[i] = "í"
-                elif letra == "o":
+                    lista_partida[i] = "í"
+                elif letra == "o" and palabra[i] == "ó":
                     confirmador == 1
-                    if "ó" in palabra:
-                        lista_partida[i] = "ó"
-                elif letra == "u":
+                    lista_partida[i] = "ó"
+                elif letra == "u" and palabra[i] == "é":
                     confirmador == 1
-                    if "ú" in palabra:
-                        lista_partida[i] = "ú"
+                    lista_partida[i] = "ú"
             print(lista_partida)
         if not letra in palabra and confirmador == 0 and len(letra) == 1: # INTRODUCIDO PALABRA INCORRECTA
             print("Has introducido una letra incorrecta!")
@@ -76,9 +73,13 @@ while respuesta == "S" or "s":
     if errores == 8:
         print("...")
         print("FIN DE LA PARTIDA. HAS PERDIDO :(")
+        perdidas += 1
     else:
         print("¡Enhorabuena! Has ganado.")
+        ganadas += 1
+    partidas += 1
     confirmador == 0
     print(lista_partida)
     #RECUERDA SUBIR EJERCICIOS JUTGE EN EL REPOSITORIO
     respuesta = input("¿Quieres jugar otra partida? s/n: ")
+    print(respuesta)
