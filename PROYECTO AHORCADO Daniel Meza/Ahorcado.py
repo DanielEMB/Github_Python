@@ -1,9 +1,14 @@
 import random
 import time
-lista_palabrasecretafáciles = ["xaloc", "madrid",  "oceanía", "pedri", "saltar", "gato", "lápiz", "martes", "cinco", "papá"] 
-lista_palabrasecretamedias = ["chocolate", "bisonte", "relatividad", "interstellar", "oceanía", "pokémon", "bisonte", "destrucción"] 
-lista_palabrasecretadifíciles = ["desoxirribonucleico", "otorrinoralingólogo", "transanlántico", "permanganato", "mesopotamia", "arzobispado", "paracaidismo", "destrucción", "descomposición", "metanfetamina"]
-lista_palabrasecretaextremas = ["anticonstitucionalmente", "esternocleidomastoideo", "hipopotomonstrosesquipedaliofobia", "pneumoultramicroscopicsilicovolcanoconiosis", "supercalifragilisticexpialioso", "parangaricutrimícuaro", "electroencefalografías", "paralelepípedoide", "microprocesador", "electrodoméstico"]
+# Nivel fácil: cortas, comunes y conocidas
+lista_palabrasecretafáciles = ["xaloc", "madrid", "oceanía", "pedri", "saltar", "gato", "lapiz", "martes", "cinco", "papá"]
+# Nivel medio: un poco más largas o con letras menos frecuentes
+lista_palabrasecretamedias = ["chocolate", "bisonte", "relatividad", "interstellar", "pokémon", "destrucción", "tornillo", "cascada", "murciélago", "escalera"]
+# Nivel difícil: largas, técnicas o con combinaciones de letras complicadas
+lista_palabrasecretadificiles = ["desoxirribonucleico", "otorrinoraringólogo", "transatlántico", "permanganato", "mesopotamia", "arzobispado", "paracaidismo", "descomposición", "metanfetamina"]
+# Nivel extremo: extremadamente largas, poco comunes o muy técnicas
+lista_palabrasecretaextremas = ["anticonstitucionalmente", "esternocleidomastoideo", "hipopotomonstrosesquipedaliofobia", "pneumoultramicroscopicsilicovolcanoconiosis", "supercalifragilisticexpialioso", "parangaricutrimicuaro", "electroencefalografias", "paralelepipedoide", "microprocesador", "electrodoméstico"]
+
 respuesta = "s"
 numero = ""
 partidas = 0
@@ -22,7 +27,7 @@ while numero != "1" and numero != "2" and numero != "3" and numero != "4":
         lista_palabrasecreta = lista_palabrasecretamedias
         print("Has seleccionado la dificultad media, prepárate para un reto complicado")
     elif numero == "3":
-        lista_palabrasecreta = lista_palabrasecretadifíciles
+        lista_palabrasecreta = lista_palabrasecretadificiles
         print("Has seleccionado la dificultad difícil, buena suerte...")
     elif numero == "4":
         lista_palabrasecreta = lista_palabrasecretaextremas
@@ -44,6 +49,7 @@ while respuesta == "S" or respuesta == "s":
         
         lista_palabra = list(palabra)
         letra = input("Introduce una letra: ")
+        letra = letra.lower()
         if len(letra) != 1 and letra.isalpha():
             print("Introduce solo una letra!")
         elif letra in lista_partida and confirmador == 0 and len(letra) == 1:
@@ -71,12 +77,12 @@ while respuesta == "S" or respuesta == "s":
                     confirmador = 1
                     lista_partida[i] = "ó"
                     lista_aciertos.append(letra)
-                elif letra == "u" and palabra[i] == "é":
+                elif letra == "u" and palabra[i] == "ú":
                     confirmador = 1
                     lista_partida[i] = "ú"
                     lista_aciertos.append(letra)
             print(lista_partida)
-        if not letra in palabra and confirmador == 0 and len(letra) == 1: # INTRODUCIDO PALABRA INCORRECTA
+        if not letra in palabra and confirmador == 0 and len(letra) == 1: # INTRODUCIDO LETRA INCORRECTA
             print("Has introducido una letra incorrecta!")
             if not letra in lista_errores:  #LETRAS AHORCADO CUANDO INTRODUCES VALOR INCORRECTO
                 errores+=1
@@ -101,6 +107,8 @@ while respuesta == "S" or respuesta == "s":
             else:
                 print("Ya has introducido esta letra antes")
             print("Las letras incorrectas son:", lista_errores)
+        if confirmador == 1:
+            confirmador = 0
     if errores == 8:
         print("...")
         print("FIN DE LA PARTIDA. HAS PERDIDO :(")
@@ -115,16 +123,27 @@ while respuesta == "S" or respuesta == "s":
     minutos = int(duracion // 60)
     segundos = int(duracion % 60)
     print("Tu partida ha durado", minutos, "minutos y", segundos, "segundos")
+    #CREACIÓN DE ARCHIVO TXT
+    text_file = open("Text.txt", "a")
+    text_file.write("Fecha de la partida; " + time.strftime("%Y-%m-%d") + "\n")
+    text_file.write("Hora de la partida; " + time.strftime("%H:%M:%S") + "\n")
+    text_file.write(f"Palabra secreta; {palabra}\n")
+    text_file.write(f"Numero de aciertos; {len(lista_aciertos)}\n")
+    text_file.write(f"Numero de errores; {errores}\n")
+    text_file = open("Text.txt", "r")
+    #FINAL DE ARCHIVO TXT
     partidas += 1
     confirmador == 0
     print(lista_partida)
     respuesta = input("¿Quieres jugar otra partida? s/n: ")
     lista_palabrasecreta.remove(palabra)
     palabrasecreta = ""
-    while not palabrasecreta.islower() or palabrasecreta.isupper():
-        palabrasecreta = input("Introduce una nueva palabra: ")
-        palabrasecreta = palabrasecreta.lower()
-        if palabrasecreta.isalpha() and palabrasecreta.islower():
-            lista_palabrasecreta.append(palabrasecreta)
-        else:
-            print("¡Introduce una palabra válida!")           
+    if respuesta == "s" or respuesta == "S":
+        while not palabrasecreta.islower() or not palabrasecreta.isalpha():
+            palabrasecreta = input("Introduce una nueva palabra: ")
+            palabrasecreta = palabrasecreta.lower()
+            if palabrasecreta.isalpha() and palabrasecreta.islower():
+                lista_palabrasecreta.append(palabrasecreta)
+            else:
+                print("¡Introduce una palabra válida!")           
+text_file.close()
