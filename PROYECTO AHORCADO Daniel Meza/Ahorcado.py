@@ -50,7 +50,7 @@ while respuesta == "S" or respuesta == "s":
         lista_palabra = list(palabra)
         letra = input("Introduce una letra: ")
         letra = letra.lower()
-        if len(letra) != 1 and letra.isalpha():
+        if len(letra) != 1 or not letra.isalpha():
             print("Introduce solo una letra!")
         elif letra in lista_partida and confirmador == 0 and len(letra) == 1:
             print("Ya has introducido esta letra antes")
@@ -124,13 +124,13 @@ while respuesta == "S" or respuesta == "s":
     segundos = int(duracion % 60)
     print("Tu partida ha durado", minutos, "minutos y", segundos, "segundos")
     #CREACIÓN DE ARCHIVO TXT
-    text_file = open("Text.txt", "a")
-    text_file.write("Fecha de la partida; " + time.strftime("%Y-%m-%d") + "\n")
-    text_file.write("Hora de la partida; " + time.strftime("%H:%M:%S") + "\n")
-    text_file.write(f"Palabra secreta; {palabra}\n")
-    text_file.write(f"Numero de aciertos; {len(lista_aciertos)}\n")
-    text_file.write(f"Numero de errores; {errores}\n")
-    text_file = open("Text.txt", "r")
+    with open("Text.txt", "a") as text_file:
+        text_file.write("Fecha de la partida; " + time.strftime("%Y-%m-%d") + "\n")
+        text_file.write("Hora de la partida; " + time.strftime("%H:%M:%S") + "\n")
+        text_file.write(f"Palabra secreta; {palabra}\n")
+        text_file.write(f"Numero de aciertos; {len(lista_aciertos)}\n")
+        text_file.write(f"Numero de errores; {errores}\n")
+        text_file.write("----------------------\n")
     #FINAL DE ARCHIVO TXT
     partidas += 1
     confirmador == 0
